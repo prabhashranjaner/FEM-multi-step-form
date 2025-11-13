@@ -79,10 +79,7 @@ export const Card = styled.section`
     box-shadow: none;
     inset: 0;
     transform: none;
-  `)}
-
-  ${media.desktop(css`
-    gap: 1rem;
+    padding: 0;
   `)}
 `;
 

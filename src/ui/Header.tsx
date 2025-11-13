@@ -11,7 +11,7 @@ const headerData: headerDataType[] = [
 ];
 
 const StyledHeader = styled.header`
-  background-image: url(/images/bg-sidebar-mobile.svg);
+  background-image: url("/src/images/bg-sidebar-mobile.svg");
   background-repeat: no-repeat;
   background-size: 100%;
   min-height: 25%;
@@ -20,7 +20,7 @@ const StyledHeader = styled.header`
 
   ${media.laptop(css`
     border-radius: 12px;
-    background-image: url(/images/bg-sidebar-desktop.svg);
+    background-image: url("/src/images/bg-sidebar-desktop.svg");
     background-size: cover;
     padding: 1rem;
     justify-items: left;

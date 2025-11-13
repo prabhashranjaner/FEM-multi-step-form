@@ -24,7 +24,6 @@ const StyledAppLayout = styled.div`
     max-width: 1080px;
     border-radius: 12px;
     grid-template-columns: 280px 1fr;
-    padding: 0;
   `)}
 `;
 
