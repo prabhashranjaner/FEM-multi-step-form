@@ -10,7 +10,7 @@ const StyledAppLayout = styled.div`
   ${media.laptop(css`
     max-width: 90vw;
     margin: 0 auto;
-    height: 700px;
+    height: 550px;
     background-color: white;
     padding: 1rem;
     border-radius: 12px;
@@ -20,9 +20,11 @@ const StyledAppLayout = styled.div`
   `)}
 
   ${media.desktop(css`
+    height: 600px;
     max-width: 1080px;
     border-radius: 12px;
     grid-template-columns: 280px 1fr;
+    padding: 0;
   `)}
 `;
 

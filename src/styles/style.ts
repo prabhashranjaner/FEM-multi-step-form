@@ -41,7 +41,7 @@ export const Heading = styled.h1`
   font-size: 24px;
 
   ${media.desktop(css`
-    font-size: 32px;
+    font-size: 30px;
   `)}
 `;
 

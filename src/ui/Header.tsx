@@ -26,9 +26,7 @@ const StyledHeader = styled.header`
     justify-items: left;
   `)}
 
-  ${media.desktop(css`
-    padding: 1.5rem;
-  `)}
+  ${media.desktop(css``)}
 `;
 
 const HeaderList = styled.ul`
