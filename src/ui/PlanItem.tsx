@@ -64,7 +64,7 @@ const PlanItem = ({ item }: PropsType) => {
       onClick={() => dispatch({ type: "plan/add", payload: item })}
       className={`${item.id === state.plan?.id ? "active" : ""}`}
     >
-      <Image alt="icon" src={`/src/images/icon-${item.icon}`} />
+      <Image alt="icon" src={`/images/icon-${item.icon}`} />
       <Detail>
         <h3>{item.name}</h3>
         <p>${price}</p>
