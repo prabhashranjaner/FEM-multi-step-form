@@ -1,9 +1,7 @@
 import styled, { css } from "styled-components";
-import type { headerDataType } from "../types/types";
-import { useLocation } from "react-router";
-import { media } from "../styles/style";
+import { media } from "../../styles/style";
 
-const StyledList = styled.li`
+export const StyledList = styled.li`
   ${media.laptop(css`
     display: flex;
     align-items: center;
@@ -15,7 +13,7 @@ const StyledList = styled.li`
   `)}
 `;
 
-const ListStep = styled.div`
+export const ListStep = styled.div`
   height: 35px;
   width: 35px;
   border-radius: 50%;
@@ -39,7 +37,7 @@ const ListStep = styled.div`
   `)}
 `;
 
-const ListDetails = styled.div`
+export const ListDetails = styled.div`
   display: none;
 
   ${media.laptop(css`
@@ -69,23 +67,3 @@ const ListDetails = styled.div`
     }
   `)}
 `;
-const HeaderListItem = ({ item }: PropsType) => {
-  const location = useLocation();
-  const isActive = item.url === location.pathname;
-
-  return (
-    <StyledList>
-      <ListStep className={isActive ? "active" : ""}>{item.stepNo}</ListStep>
-      <ListDetails>
-        <h4>STEP {item.stepNo}</h4>
-        <p>{item.title.toUpperCase()}</p>
-      </ListDetails>
-    </StyledList>
-  );
-};
-
-export default HeaderListItem;
-
-type PropsType = {
-  item: headerDataType;
-};

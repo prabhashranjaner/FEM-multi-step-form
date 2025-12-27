@@ -1,30 +1,33 @@
-export type headerDataType = {
+export type headerDataType = Readonly<{
   stepNo: string;
   title: string;
   url: string;
+}>;
+
+export type PriceType = {
+  monthly: number;
+  yearly: number;
 };
 
-export type PlanDataType = {
+export type PlanDataType = Readonly<{
+  id: number;
   icon: string;
   name: string;
-  monthly: string;
-  yearly: string;
-  id: number;
-};
+  price: PriceType;
+}>;
 
-export type AddonsType = {
+export type AddonsType = Readonly<{
+  id: number;
   name: string;
-  monthly: string;
-  yearly: string;
-  id: number;
+  price: PriceType;
   detail: string;
-};
+}>;
 
-export type UserType = {
+export type UserType = Readonly<{
   name: string;
   email: string;
   phone: number;
-};
+}>;
 
 export type PaymentModeType = "monthly" | "yearly";
 

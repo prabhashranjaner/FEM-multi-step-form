@@ -2,7 +2,7 @@ import data from "../data.json";
 import styled, { css } from "styled-components";
 import { Card, Heading, List, media, SubHeading } from "../styles/style";
 import { useNavigate } from "react-router";
-import AddonItem from "../ui/AddonItem";
+import AddonItem from "../ui/AddonItem/AddonItem";
 import {
   BackButton,
   NextButton,

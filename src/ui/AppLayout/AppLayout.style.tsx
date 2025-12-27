@@ -1,9 +1,7 @@
 import styled, { css } from "styled-components";
-import Header from "./Header";
-import { Outlet } from "react-router";
-import { media } from "../styles/style";
+import { media } from "../../styles/style";
 
-const StyledAppLayout = styled.div`
+export const StyledAppLayout = styled.div`
   position: relative;
   height: 100dvh;
 
@@ -27,7 +25,7 @@ const StyledAppLayout = styled.div`
   `)}
 `;
 
-const Main = styled.main`
+export const Main = styled.main`
   position: relative;
 
   ${media.laptop(css`
@@ -36,16 +34,3 @@ const Main = styled.main`
     padding: 1rem;
   `)}
 `;
-
-const AppLayout = () => {
-  return (
-    <StyledAppLayout>
-      <Header />
-      <Main>
-        <Outlet />
-      </Main>
-    </StyledAppLayout>
-  );
-};
-
-export default AppLayout;

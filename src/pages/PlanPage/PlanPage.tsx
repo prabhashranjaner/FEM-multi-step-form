@@ -1,52 +1,20 @@
-import data from "../data.json";
-import styled, { css } from "styled-components";
-import { Card, Heading, List, media, SubHeading } from "../styles/style";
-import PlanItem from "../ui/PlanItem";
-import ToggleSwitch from "../ui/ToggleSwitch";
+import data from "../../data.json";
+import PlanItem from "../../ui/PlanItem/PlanItem";
+import ToggleSwitch from "../../ui/ToggleSwitch/ToggleSwitch";
 import { useNavigate } from "react-router";
 import {
   BackButton,
   NextButton,
   StyledNavigation,
-} from "../styles/navigationStyles";
-import useState from "../contexts/StateContext";
-
-const StyledPlanPage = styled.div`
-  ${media.laptop(css`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  `)}
-`;
-
-const PlanList = styled(List)``;
-
-const ToggleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  background-color: var(--col-gray-2);
-  padding: 0.8rem;
-
-  ${media.desktop(css`
-    gap: 2rem;
-  `)}
-`;
-
-const ToggleLabel = styled.span`
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--col-gray-4);
-
-  &.active {
-    color: var(--col-darkblue);
-  }
-
-  ${media.desktop(css`
-    font-size: 18px;
-  `)}
-`;
+} from "../../styles/navigationStyles";
+import useState from "../../contexts/StateContext";
+import {
+  PlanList,
+  StyledPlanPage,
+  ToggleLabel,
+  ToggleWrapper,
+} from "./PlanPage.style";
+import { Card, Heading, SubHeading } from "../../styles/style";
 
 const PlanPage = () => {
   const navigate = useNavigate();

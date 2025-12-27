@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router";
-import AppLayout from "./ui/AppLayout";
-import HomePage from "./pages/HomePage";
-import PlanPage from "./pages/PlanPage";
+import AppLayout from "./ui/AppLayout/AppLayout";
+import HomePage from "./pages/HomePage/HomePage";
+import PlanPage from "./pages/PlanPage/PlanPage";
 import AddonsPage from "./pages/AddonsPage";
-import SummaryPage from "./pages/SummaryPage";
-import ThankYouPage from "./pages/ThankYouPage";
+import SummaryPage from "./pages/SummaryPage/SummaryPage";
+import ThankYouPage from "./pages/ThankyouPage/ThankYouPage";
 
 function App() {
   return (

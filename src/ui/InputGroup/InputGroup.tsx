@@ -1,34 +1,12 @@
 import type { ReactNode } from "react";
 import type { FieldError } from "react-hook-form";
-import styled, { css } from "styled-components";
-import { media } from "../styles/style";
+import { Error, StyledInputGroup, Top } from "./InputGroup.style";
 
-const StyledInputGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-`;
-
-const Top = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  & span {
-    ${media.desktop(css`
-      font-size: 18px;
-    `)}
-  }
-`;
-
-const Error = styled.span`
-  color: var(--col-red);
-  font-size: 12px;
-
-  ${media.desktop(css`
-    font-size: 16px;
-  `)}
-`;
+type PropsType = {
+  label: string;
+  error: FieldError | undefined;
+  children: ReactNode;
+};
 
 const InputGroup = ({ label, error, children }: PropsType) => {
   return (
@@ -52,9 +30,3 @@ const InputGroup = ({ label, error, children }: PropsType) => {
 };
 
 export default InputGroup;
-
-type PropsType = {
-  label: string;
-  error: FieldError | undefined;
-  children: ReactNode;
-};

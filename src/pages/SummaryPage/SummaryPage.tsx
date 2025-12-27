@@ -1,66 +1,19 @@
-import styled, { css } from "styled-components";
-import { Card, Heading, media, SubHeading } from "../styles/style";
 import { Link, useNavigate } from "react-router";
 import { useEffect } from "react";
 import {
   BackButton,
   NextButton,
   StyledNavigation,
-} from "../styles/navigationStyles";
-import useState from "../contexts/StateContext";
-
-const StyledPage = styled.div`
-  ${media.laptop(css`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  `)}
-`;
-
-const SummaryWrapper = styled.div`
-  background-color: var(--col-gray-2);
-  padding: 0.3rem;
-`;
-
-const SummaryItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-
-  &.main {
-    border-bottom: 1px solid var(--col-gray-3);
-    font-size: 18px;
-    p {
-      font-weight: 700;
-      font-size: 18px;
-    }
-  }
-
-  & h4 {
-    font-weight: 700;
-    margin-bottom: 5px;
-  }
-`;
-
-const AddonText = styled.p`
-  color: var(--col-gray-4);
-`;
-
-const TotalWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 1rem;
-  font-size: 20px;
-  color: var(--col-gray-4);
-
-  & p.price {
-    font-weight: 700;
-    color: var(--col-blue);
-  }
-`;
+} from "../../styles/navigationStyles";
+import useState from "../../contexts/StateContext";
+import {
+  AddonText,
+  StyledPage,
+  SummaryItem,
+  SummaryWrapper,
+  TotalWrapper,
+} from "./SummaryPage.style";
+import { Card, Heading, SubHeading } from "../../styles/style";
 
 function formateText(str: string | undefined) {
   if (str === undefined || str.length === 0) {
@@ -79,22 +32,22 @@ const SummaryPage = () => {
     let addonsCost = 0;
     if (state.addons.length > 0)
       addonsCost = state.addons.reduce(
-        (acc, addon) => acc + Number(addon.monthly),
+        (acc, addon) => acc + addon.price.monthly,
         0
       );
 
-    totalAmount = Number(state.plan.monthly) + addonsCost;
+    totalAmount = state.plan.price.monthly + addonsCost;
   }
 
   if (state.plan && state.paymentMode === "yearly") {
     let addonsCost = 0;
     if (state.addons.length > 0)
       addonsCost = state.addons.reduce(
-        (acc, addon) => acc + Number(addon.yearly),
+        (acc, addon) => acc + addon.price.yearly,
         0
       );
 
-    totalAmount = Number(state.plan.yearly) + addonsCost;
+    totalAmount = state.plan.price.yearly + addonsCost;
   }
 
   useEffect(() => {
@@ -123,8 +76,8 @@ const SummaryPage = () => {
                   {" "}
                   +$
                   {state.paymentMode === "monthly"
-                    ? `${state.plan!.monthly}/mo`
-                    : `${state.plan!.yearly}/yr`}{" "}
+                    ? `${state.plan!.price.monthly}/mo`
+                    : `${state.plan!.price.yearly}/yr`}{" "}
                 </p>
               </SummaryItem>
               {state.addons.length > 0 &&
@@ -135,8 +88,8 @@ const SummaryPage = () => {
                       <p>
                         +$
                         {state.paymentMode === "monthly"
-                          ? `${addon.monthly}/mo`
-                          : `${addon.yearly}/yr`}{" "}
+                          ? `${addon.price.monthly}/mo`
+                          : `${addon.price.yearly}/yr`}{" "}
                       </p>
                     </SummaryItem>
                   );
