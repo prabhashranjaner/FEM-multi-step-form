@@ -1,9 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
+import DataContextProvider from "./contexts/DataContextProvider.tsx";
+import { BrowserRouter } from "react-router";
+import GlobalStyles from "./styles/GlobalStyles.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <GlobalStyles />
+    <BrowserRouter>
+      <DataContextProvider>
+        <App />
+      </DataContextProvider>
+    </BrowserRouter>
   </StrictMode>
 );

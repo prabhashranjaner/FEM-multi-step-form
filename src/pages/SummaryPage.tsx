@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 import { Card, Heading, media, SubHeading } from "../styles/style";
 import { Link, useNavigate } from "react-router";
-import { useData } from "../contexts/DataContextProvider";
 import { useEffect } from "react";
 import {
   BackButton,
   NextButton,
   StyledNavigation,
 } from "../styles/navigationStyles";
+import useState from "../contexts/StateContext";
 
 const StyledPage = styled.div`
   ${media.laptop(css`
@@ -72,7 +72,7 @@ function formateText(str: string | undefined) {
 // !=============Componenr
 const SummaryPage = () => {
   const navigate = useNavigate();
-  const { state } = useData();
+  const state = useState();
 
   let totalAmount = 0;
   if (state.plan && state.paymentMode === "monthly") {

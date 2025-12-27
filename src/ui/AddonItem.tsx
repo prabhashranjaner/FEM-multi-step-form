@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 import { ListItem, media } from "../styles/style";
 import type { AddonsType } from "../types/types";
-import { useData } from "../contexts/DataContextProvider";
 import CheckBox from "./CheckBox";
+import useState from "../contexts/StateContext";
 
 const StyledAddonItem = styled(ListItem)`
   padding: 0.5rem;
@@ -47,7 +47,7 @@ const Price = styled.p`
 `;
 
 const AddonItem = ({ item }: PropsType) => {
-  const { state } = useData();
+  const state = useState();
   const price =
     state.paymentMode === "monthly"
       ? `${item.monthly}/mo`

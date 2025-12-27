@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
 import type { PlanDataType } from "../types/types";
-import { useData } from "../contexts/DataContextProvider";
 import { media } from "../styles/style";
+import useState from "../contexts/StateContext";
+import useDispatch from "../contexts/DispatchContext";
 
 const StyledPlanItem = styled.div`
   display: flex;
@@ -53,7 +54,8 @@ const Detail = styled.div`
   }
 `;
 const PlanItem = ({ item }: PropsType) => {
-  const { state, dispatch } = useData();
+  const state = useState();
+  const dispatch = useDispatch();
 
   const price =
     state.paymentMode === "monthly"

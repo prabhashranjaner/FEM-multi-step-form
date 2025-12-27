@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
-import { useData } from "../contexts/DataContextProvider";
 import type { AddonsType } from "../types/types";
 import { media } from "../styles/style";
+import useState from "../contexts/StateContext";
+import useDispatch from "../contexts/DispatchContext";
 
 const StyledCheckBox = styled.label`
   position: relative;
@@ -53,7 +54,9 @@ const HiddenCheckbox = styled.input`
 `;
 
 const CheckBox = ({ item }: { item: AddonsType }) => {
-  const { state, dispatch } = useData();
+  const state = useState();
+  const dispatch = useDispatch();
+
   const isPresent =
     state.addons.length > 0 &&
     state.addons.filter((addon) => addon.id === item.id).length > 0;

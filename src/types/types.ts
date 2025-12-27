@@ -1,5 +1,3 @@
-import type { Dispatch } from "react";
-
 export type headerDataType = {
   stepNo: string;
   title: string;
@@ -46,8 +44,3 @@ export type ActionTypes =
   | { type: "addons/add"; payload: AddonsType }
   | { type: "addons/remove"; payload: number }
   | { type: "payment-mode/update"; payload: PaymentModeType };
-
-export type ContextType = {
-  state: DataType;
-  dispatch: Dispatch<ActionTypes>;
-};

@@ -1,8 +1,8 @@
-import { createContext, useContext, useReducer, type ReactNode } from "react";
-import type { ContextType, DataType } from "../types/types";
+import { useReducer, type ReactNode } from "react";
+import type { DataType } from "../types/types";
 import reducer from "./reducer";
-
-const DataContext = createContext<ContextType | null>(null);
+import { StateContext } from "./StateContext";
+import { DispatchContext } from "./DispatchContext";
 
 const initialState: DataType = {
   user: null,
@@ -18,17 +18,10 @@ export default function DataContextProvider({
 }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <DataContext.Provider value={{ state, dispatch }}>
-      {children}
-    </DataContext.Provider>
+    <StateContext.Provider value={state}>
+      <DispatchContext.Provider value={dispatch}>
+        {children}
+      </DispatchContext.Provider>
+    </StateContext.Provider>
   );
-}
-
-// eslint-disable-next-line
-export function useData() {
-  const context = useContext(DataContext);
-
-  if (!context) throw new Error("Called outside of Context ");
-
-  return context;
 }

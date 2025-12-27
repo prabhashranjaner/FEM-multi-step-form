@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { useData } from "../contexts/DataContextProvider";
+import useState from "../contexts/StateContext";
+import useDispatch from "../contexts/DispatchContext";
 
 const StyledToggleSwitch = styled.label`
   width: 50px;
@@ -40,7 +41,8 @@ const HiddenInput = styled.input`
 `;
 
 const ToggleSwitch = () => {
-  const { state, dispatch } = useData();
+  const state = useState();
+  const dispatch = useDispatch();
 
   const handleToggle = () => {
     const payload = state.paymentMode === "monthly" ? "yearly" : "monthly";

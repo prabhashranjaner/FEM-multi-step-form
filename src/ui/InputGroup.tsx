@@ -30,12 +30,7 @@ const Error = styled.span`
   `)}
 `;
 
-const InputGroup = ({
-  label,
-  error,
-
-  children,
-}: PropsType) => {
+const InputGroup = ({ label, error, children }: PropsType) => {
   return (
     <StyledInputGroup>
       <Top>

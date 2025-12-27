@@ -4,8 +4,9 @@ import InputGroup from "../ui/InputGroup";
 import { useNavigate } from "react-router";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import type { UserType } from "../types/types";
-import { useData } from "../contexts/DataContextProvider";
 import { NextButton, StyledNavigation } from "../styles/navigationStyles";
+import useState from "../contexts/StateContext";
+import useDispatch from "../contexts/DispatchContext";
 
 const StyledHome = styled.form`
   ${media.laptop(css`
@@ -46,7 +47,8 @@ const Input = styled.input`
 `;
 
 const HomePage = () => {
-  const { dispatch, state } = useData();
+  const state = useState();
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const {

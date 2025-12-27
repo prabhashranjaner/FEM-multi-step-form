@@ -4,12 +4,12 @@ import { Card, Heading, List, media, SubHeading } from "../styles/style";
 import PlanItem from "../ui/PlanItem";
 import ToggleSwitch from "../ui/ToggleSwitch";
 import { useNavigate } from "react-router";
-import { useData } from "../contexts/DataContextProvider";
 import {
   BackButton,
   NextButton,
   StyledNavigation,
 } from "../styles/navigationStyles";
+import useState from "../contexts/StateContext";
 
 const StyledPlanPage = styled.div`
   ${media.laptop(css`
@@ -50,7 +50,8 @@ const ToggleLabel = styled.span`
 
 const PlanPage = () => {
   const navigate = useNavigate();
-  const { state } = useData();
+  const state = useState();
+
   return (
     <StyledPlanPage>
       <Card>
